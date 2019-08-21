@@ -17,4 +17,15 @@ module.export = passport => {
       done(user.errors, null);
     });
   });
+
+  passport.use(
+    "local-signup",
+    new LocalStrategy({
+      usernameField: "email",
+      passwordField: "account_key",
+      passReqToCallback: true
+    })
+  );
 };
+
+/** Signup */
